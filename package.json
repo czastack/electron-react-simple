@@ -4,12 +4,12 @@
   "private": true,
   "main": "public/electron.js",
   "scripts": {
-    "dev": "cross-env BROWSER=none react-scripts start",
-    "build": "react-scripts build",
+    "dev": "cross-env BROWSER=none craco start",
+    "build": "craco build",
     "electron:dev": "cross-env NODE_ENV=development electron .",
-    "electron:build": "react-scripts build && electron-builder build",
+    "electron:build": "craco build && electron-builder build",
     "postinstall": "electron-builder install-app-deps",
-    "test": "react-scripts test",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "dependencies": {
@@ -17,6 +17,7 @@
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
+    "@craco/craco": "^5.6.4",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -31,13 +32,10 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-
   "build": {
     "productName": "ElectronReact",
-    "appId": "org.develar.ElectronReact",
-    "files": [
-      "build"
-    ],
+    "appId": "com.czastack.ElectronReact",
+    "files": [],
     "dmg": {
       "contents": [
         {
