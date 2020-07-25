@@ -32,7 +32,7 @@ async function createWindow() {
 
     // react dev server
     await new Promise((resolve, reject) => {
-      const server = spawn('npm', ['run', 'dev'])
+      const server = spawn(process.platform === 'win32' ? 'npm.cmd' : 'npm', ['run', 'dev'])
       const listener = data => {
         if (data.toString().indexOf('Compiled successfully!') !== -1) {
           server.stdout.off('data', listener)
